@@ -1,10 +1,10 @@
 ## General Info
-- The IP address of the Raspberry Pi Pico W I have mounted on the car right now (using the breadboard): **10.0.0.124**
+- The IP address of the Raspberry Pi Pico W I have mounted on the car right now (using the breadboard): **10.0.0.214**
 
 ## Example Posts
 Turns the "safeties" off (must do this first):
 ```
-POST 10.0.0.124
+POST 10.0.0.214
 {
     "mac": 0
 }
@@ -12,7 +12,7 @@ POST 10.0.0.124
 
 Move forward for one second at 50% power:
 ```
-POST 10.0.0.124
+POST 10.0.0.214
 {
     "mac": 3,
     "power": 0.5,
@@ -27,7 +27,7 @@ Go look at the *mac* settings in the [settings](./src/settings.py) to see what e
 
 To get the status:
 ```
-GET 10.0.0.124/status
+GET 10.0.0.214/status
 ```
 
 
