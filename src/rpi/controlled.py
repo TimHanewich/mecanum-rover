@@ -178,5 +178,5 @@ while True:
         ToReturn["battery"] = battery_percent
 
         # Return success response
-        cl.send("HTTP/1.0 200 OK\r\nContent-Type: application/json\r\n\r\n" + str(ToReturn))
+        cl.send("HTTP/1.0 200 OK\r\nContent-Type: application/json\r\n\r\n" + str(json.dumps(ToReturn)))
         cl.close()
