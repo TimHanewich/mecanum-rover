@@ -85,7 +85,23 @@ while True:
     # handle a get and post differently
     if req.method.upper() == "POST":
 
-        jobj = json.loads(req.body)
+        # was a body included
+        body:str = None
+        if r.body != "":
+            body = r.body
+        else:
+
+            # find the header that states the length
+            body_length:int = None
+            for key, value in r.headers.items():
+                if key.lower() == "content-length":
+                    body_length = int(value)
+
+            if body_length != None:
+                bodyb = client.recv(body_length)
+                body = bodyb.decode()
+
+        jobj = json.loads(body)
 
         # redirect
         url = "http://" + redirect_to + req.path
