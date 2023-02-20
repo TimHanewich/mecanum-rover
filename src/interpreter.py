@@ -53,6 +53,13 @@ class request:
         return ToReturn
     
 
+
+# print my IP address
+hostname = socket.gethostname()
+ip_address = socket.gethostbyname(hostname)
+print("My local IP address: '" + ip_address + "'")
+print("I will redirect all network traffic to '" + redirect_to + "'")
+
 # Create a socket object
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
