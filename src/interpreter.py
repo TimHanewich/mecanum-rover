@@ -87,13 +87,13 @@ while True:
 
         # was a body included
         body:str = None
-        if r.body != "":
-            body = r.body
+        if req.body != "":
+            body = req.body
         else:
 
             # find the header that states the length
             body_length:int = None
-            for key, value in r.headers.items():
+            for key, value in req.headers.items():
                 if key.lower() == "content-length":
                     body_length = int(value)
 
