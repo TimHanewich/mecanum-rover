@@ -65,9 +65,26 @@ while True:
     request_str = request.decode()
     r = requests_tools.request.parse(request_str)
 
-    if r.path == "/":
+    if r.path == "/" and r.method.upper() == "POST":
+
+        # was a body included
+        body:str = None
+        if r.body != "":
+            body = r.body
+        else:
+
+            # find the header that states the length
+            body_length:int = None
+            for key, value in r.headers.items():
+                if key.lower() == "content-length":
+                    body_length = int(value)
+
+            if body_length != None:
+                bodyb = cl.recv(body_length)
+                body = bodyb.decode()
+
         # Get the body as JSON
-        payload = json.loads(r.body)
+        payload = json.loads(body)
 
         # Assemble a list of instructions to execute
         to_execute = []
