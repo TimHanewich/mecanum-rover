@@ -21,6 +21,10 @@ time.sleep(0.5)
 led.on()
 time.sleep(0.5)
 led.off()
+time.sleep(0.5)
+
+# turn the LED on and leave it like tht
+led.on()
 
 
 # variables to track
