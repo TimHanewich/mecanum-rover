@@ -152,8 +152,8 @@ while True:
         ToReturn["age"] = elapsed_seconds
 
         # distance
-        distance_cm = ultrasonic.measure()
-        ToReturn["distance"] = distance_cm
+        # distance_cm = ultrasonic.measure()
+        # ToReturn["distance"] = distance_cm
 
         # battery level
         volts = vs.measure_set()
